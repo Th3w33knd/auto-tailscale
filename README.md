@@ -470,7 +470,7 @@ if ($MONITOR_PEER_IP -ne "") {
     Write-Host "  Pinging $MONITOR_PEER_IP..." -ForegroundColor DarkGray
     $ping = (Invoke-Tailscale -Command @("ping","--c","3",$MONITOR_PEER_IP)) | Out-String
     if ($ping -match "pong") {
-        Write-OK "Ping to $MONITOR_PEER_IP: OK"
+        Write-OK "Ping to ${MONITOR_PEER_IP}: OK"
     } else {
         Write-Warn "Ping to $MONITOR_PEER_IP failed (peer may be offline)."
         Write-Warn "The monitor will keep checking every 60 s."
